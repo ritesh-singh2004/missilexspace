@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import {
   Rocket,
@@ -61,7 +62,7 @@ export default function KalamPageContent() {
           <div className="grid gap-10 lg:grid-cols-[1fr_320px] lg:items-center">
             <div>
               <nav aria-label="Breadcrumb" className="mb-4 flex items-center gap-1.5 text-xs text-blue-200/70">
-                <a href="/" className="hover:text-white transition">Home</a>
+                <Link href="/" className="hover:text-white transition">Home</Link>
                 <ChevronRight className="h-3 w-3 text-blue-300/40" />
                 <span className="text-white/90">National Memorial &amp; Archives</span>
               </nav>

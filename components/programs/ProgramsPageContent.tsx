@@ -412,7 +412,7 @@ export default function ProgramsPageContent() {
           {filteredPrograms.length === 0 && (
             <div className="rounded-3xl border border-slate-200 bg-white p-12 text-center">
               <p className="text-base font-bold text-slate-900">No matching aerospace programs found</p>
-              <p className="text-xs text-slate-500 mt-1">Try broadening your search query or selecting "All Global Agencies".</p>
+              <p className="text-xs text-slate-500 mt-1">Try broadening your search query or selecting &ldquo;All Global Agencies&rdquo;.</p>
               <button
                 type="button"
                 onClick={() => {
