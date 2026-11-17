@@ -8,7 +8,6 @@ import { useUser, useClerk } from '@clerk/nextjs';
 import { Menu, X, Radar, ChevronDown, Compass, Rocket, Award } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { navItems } from '@/lib/nav-data';
-import TopUtilityBar from '@/components/layout/TopUtilityBar';
 import SiteSearch from '@/components/layout/SiteSearch';
 
 const getDropdownIcon = (href: string) => {
@@ -29,8 +28,6 @@ export default function Navbar() {
 
   return (
     <>
-      <TopUtilityBar />
-
       <header className="sticky top-0 z-40 transition-shadow">
         <div className="border-b border-line bg-white/95 py-2.5 backdrop-blur-md shadow-xs">
           <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 sm:px-8 xl:px-12">

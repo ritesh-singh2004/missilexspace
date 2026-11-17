@@ -18,8 +18,14 @@ import {
   Orbit 
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import Image from 'next/image';
 import PageBanner from '@/components/patterns/PageBanner';
 import { rockets, RocketData } from '@/lib/rockets';
+import VideoHero from '@/components/hero/VideoHero';
+import { rocketLaunchVideoSources, designRenderPoster } from '@/lib/hero-video';
+import designWireframe from '@/public/images/rockets/design-wireframe.jpg';
+import designSolid from '@/public/images/rockets/design-solid.jpg';
+import designRender from '@/public/images/rockets/design-render.jpg';
 
 const fleetCategories = [
   { id: 'all', label: 'All Vehicles (7)' },
@@ -37,6 +43,44 @@ const vehicleSilhouettes = [
   { slug: 'lvm3', name: 'LVM3', height: '43.5m', heightVal: 43.5, mass: '640t', payload: '8,000 kg LEO' },
   { slug: 'pslv', name: 'PSLV', height: '44m', heightVal: 44, mass: '295t', payload: '3,800 kg LEO' },
   { slug: 'gslv', name: 'GSLV', height: '49m', heightVal: 49, mass: '414t', payload: '2,500 kg GTO' }
+];
+
+const designStages = [
+  {
+    no: '01',
+    kicker: '2D Drawing',
+    src: designWireframe,
+    alt: 'OpenRocket 2D drawing of the research vehicle showing recovery bay, flight computer and motor layout',
+    title: 'Geometry & stability',
+    note: 'Airframe drawn at 49.8 × 5.0 cm — centre of gravity 11.84 in ahead of centre of pressure, holding a 2.04-caliber margin.'
+  },
+  {
+    no: '02',
+    kicker: '3D Solid',
+    src: designSolid,
+    alt: 'OpenRocket 3D solid view of the research vehicle showing nose cone, body tube and fin can',
+    title: 'Mass & configuration',
+    note: '153 g on an E6-RCT-P motor — parachute, shock cord and flight computer stacked inside the 100 g dry airframe.'
+  },
+  {
+    no: '03',
+    kicker: '3D Render',
+    src: designRender,
+    alt: 'OpenRocket textured render of the research vehicle with marble body tube and plywood fins',
+    title: 'Rendered for review',
+    note: 'Final surfaces before the run — 574 m apogee, 72 m/s max velocity, 6.95 G off the pad.'
+  }
+];
+
+const designSpecs = [
+  { label: 'Length', value: '49.8 cm' },
+  { label: 'Diameter', value: '5.0 cm' },
+  { label: 'Launch mass', value: '153 g' },
+  { label: 'Motor', value: 'E6-RCT-P' },
+  { label: 'Apogee', value: '574 m' },
+  { label: 'Max velocity', value: '72 m/s · M0.214' },
+  { label: 'Max accel', value: '6.95 G' },
+  { label: 'Stability', value: '2.04 cal' }
 ];
 
 export default function RocketsPageContent() {
@@ -87,7 +131,7 @@ export default function RocketsPageContent() {
             <div className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
               <p className="font-mono text-3xl font-black text-slate-950">07</p>
               <p className="mt-1 text-xs font-bold uppercase tracking-wider text-slate-700">Vehicle Classes</p>
-              <p className="mt-0.5 text-[11px] font-medium text-emerald-600">Sounding to LVM3</p>
+              <p className="mt-0.5 text-[11px] font-medium text-emerald-700">Sounding to LVM3</p>
             </div>
             <div className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
               <p className="font-mono text-3xl font-black text-[#0B4F9C]">50+</p>
@@ -176,14 +220,14 @@ export default function RocketsPageContent() {
                     }`}>
                       {v.name}
                     </span>
-                    <span className="text-[10px] text-slate-400 font-mono">{v.mass}</span>
+                    <span className="text-[10px] text-slate-500 font-mono">{v.mass}</span>
                   </button>
                 );
               })}
             </div>
           </div>
           <div className="mt-2 text-right">
-            <span className="text-[10px] text-slate-400 font-mono">Reference Ground Line (0.00m Pad Elevation)</span>
+            <span className="text-[10px] text-slate-500 font-mono">Reference Ground Line (0.00m Pad Elevation)</span>
           </div>
         </section>
 
@@ -301,22 +345,22 @@ export default function RocketsPageContent() {
                         </div>
 
                         <div className="lg:col-span-5 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs space-y-3">
-                          <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">VEHICLE SPECIFICATIONS</p>
+                          <p className="text-[10px] font-bold uppercase tracking-wider text-slate-500">VEHICLE SPECIFICATIONS</p>
                           <div className="grid grid-cols-2 gap-3 text-xs">
                             <div>
-                              <span className="text-slate-400 block text-[10px] uppercase">Height</span>
+                              <span className="text-slate-500 block text-[10px] uppercase">Height</span>
                               <span className="font-mono font-bold text-slate-900 text-sm">{rocket.specifications?.Height}</span>
                             </div>
                             <div>
-                              <span className="text-slate-400 block text-[10px] uppercase">Payload to LEO</span>
+                              <span className="text-slate-500 block text-[10px] uppercase">Payload to LEO</span>
                               <span className="font-mono font-bold text-emerald-700 text-sm">8,000 kg</span>
                             </div>
                             <div>
-                              <span className="text-slate-400 block text-[10px] uppercase">Payload to GTO</span>
+                              <span className="text-slate-500 block text-[10px] uppercase">Payload to GTO</span>
                               <span className="font-mono font-bold text-[#0B4F9C] text-sm">4,000 kg</span>
                             </div>
                             <div>
-                              <span className="text-slate-400 block text-[10px] uppercase">Stages</span>
+                              <span className="text-slate-500 block text-[10px] uppercase">Stages</span>
                               <span className="font-mono font-bold text-slate-900 text-sm">{rocket.specifications?.Stages} Stages</span>
                             </div>
                           </div>
@@ -379,7 +423,7 @@ export default function RocketsPageContent() {
                     </div>
 
                     <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                      <span className="text-xs text-slate-400 font-mono">Record: 104 Satellites / Flight</span>
+                      <span className="text-xs text-slate-500 font-mono">Record: 104 Satellites / Flight</span>
                       <Link
                         href={`/rockets/${rocket.slug}`}
                         className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0B4F9C] hover:underline"
@@ -419,11 +463,11 @@ export default function RocketsPageContent() {
 
                     <div className="mt-4 grid grid-cols-2 gap-2 rounded-xl bg-slate-50 p-2.5 border border-slate-100 text-xs">
                       <div>
-                        <span className="text-[10px] font-semibold text-slate-400 block uppercase">Lift-off Mass</span>
+                        <span className="text-[10px] font-semibold text-slate-500 block uppercase">Lift-off Mass</span>
                         <span className="font-mono font-bold text-slate-800">{rocket.specifications?.Mass || 'Varies'}</span>
                       </div>
                       <div>
-                        <span className="text-[10px] font-semibold text-slate-400 block uppercase">Stages</span>
+                        <span className="text-[10px] font-semibold text-slate-500 block uppercase">Stages</span>
                         <span className="font-mono font-bold text-slate-800">{rocket.specifications?.Stages || 'Multiple'}</span>
                       </div>
                     </div>
@@ -434,7 +478,7 @@ export default function RocketsPageContent() {
                   </div>
 
                   <div className="mt-5 border-t border-slate-100 pt-3 flex items-center justify-between">
-                    <span className="text-[11px] text-slate-400 font-mono">ISRO Heritage</span>
+                    <span className="text-[11px] text-slate-500 font-mono">ISRO Heritage</span>
                     <Link
                       href={`/rockets/${rocket.slug}`}
                       className="inline-flex items-center gap-1 text-xs font-bold text-[#0B4F9C] hover:underline"
@@ -488,6 +532,75 @@ export default function RocketsPageContent() {
           </div>
         )}
       </div>
+
+      {/* 5. DESIGN & SIMULATION SHOWCASE */}
+      <section aria-labelledby="design-simulation-heading" className="relative isolate overflow-hidden bg-[#06182e] py-16 sm:py-24">
+        <div
+          className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute -top-32 left-1/2 h-96 w-[700px] -translate-x-1/2 rounded-full bg-gradient-to-tr from-blue-500/20 via-sky-500/10 to-amber-500/15 blur-3xl pointer-events-none"
+          aria-hidden="true"
+        />
+
+        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 xl:px-12">
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#E67300]">Design &amp; Simulation</p>
+          <div className="mt-3 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <h2 id="design-simulation-heading" className="max-w-2xl text-3xl font-black tracking-tight text-white text-balance sm:text-5xl sm:leading-[1.12]">
+              From wireframe to flight.
+            </h2>
+            <p className="max-w-md text-sm leading-7 text-white/60 lg:text-right">
+              Every flight starts as geometry — model the airframe, balance CG against CP, then run the simulation. A 153&nbsp;g E6 research vehicle, from first line to a predicted 574&nbsp;m apogee.
+            </p>
+          </div>
+        </div>
+
+        {/* Full-bleed walkthrough band — native 4.18:1 from sm up, 16:9 centre crop on phones */}
+        <div className="relative mt-10 aspect-[16/9] w-full border-y border-white/10 sm:mt-14 sm:aspect-[1916/458]">
+          <VideoHero
+            interactive
+            durationLabel="0:22"
+            sources={rocketLaunchVideoSources}
+            poster={designRenderPoster}
+            posterAlt="OpenRocket render of the E6 research vehicle, used as the walkthrough poster frame"
+          />
+        </div>
+
+        <div className="relative mx-auto mt-12 max-w-7xl px-6 sm:mt-16 sm:px-8 xl:px-12">
+          <ol className="space-y-8">
+            {designStages.map((stage) => (
+              <li key={stage.no} className="grid gap-4 sm:grid-cols-[5rem_1fr] sm:gap-6 lg:grid-cols-[7rem_1fr]">
+                <div className="flex items-baseline gap-3 sm:block">
+                  <span className="font-mono text-3xl font-black leading-none text-[#E67300] sm:text-4xl">{stage.no}</span>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-white/55 sm:mt-2.5 sm:block">{stage.kicker}</span>
+                </div>
+                <figure className="min-w-0">
+                  <div className="relative aspect-[2/1] overflow-hidden rounded-2xl border border-white/15 bg-white shadow-[0_24px_60px_rgba(2,10,22,0.45)] transition-shadow duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-[0_30px_72px_rgba(2,10,22,0.62)] sm:aspect-[1916/458]">
+                    <Image src={stage.src} alt={stage.alt} fill sizes="(min-width:1024px) 1056px, 100vw" className="object-cover" />
+                  </div>
+                  <figcaption className="mt-3 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                    <p className="shrink-0 text-sm font-bold text-white">{stage.title}</p>
+                    <p className="max-w-2xl text-xs leading-6 text-white/55 sm:text-right">{stage.note}</p>
+                  </figcaption>
+                </figure>
+              </li>
+            ))}
+          </ol>
+
+          <dl className="mt-12 grid grid-cols-2 gap-2.5 sm:grid-cols-4 lg:grid-cols-8">
+            {designSpecs.map((spec) => (
+              <div
+                key={spec.label}
+                className="rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3.5 transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.07]"
+              >
+                <dt className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/60">{spec.label}</dt>
+                <dd className="mt-1.5 font-mono text-sm font-bold text-white">{spec.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
     </main>
   );
 }

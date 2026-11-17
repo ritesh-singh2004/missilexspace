@@ -6,6 +6,7 @@ import brahmosLaunch from '@/public/images/gallery/brahmos-launch.jpg';
 import agniLaunch from '@/public/images/gallery/agni-launch.jpg';
 import navyDestroyers from '@/public/images/gallery/navy-destroyers.jpg';
 import researchLab from '@/public/images/gallery/research-lab.jpg';
+import modelRocketLaunch from '@/public/images/gallery/model-rocket-launch.jpg';
 
 export const galleryCategories = [
   'Indian Missiles',
@@ -98,5 +99,14 @@ export const galleryImages: GalleryImage[] = [
     caption: 'A visit to the Semiconductor Laboratory, Department of Space.',
     credit: 'Department of Space, Government of India',
     license: 'GODL-India'
+  },
+  {
+    slug: 'model-rocket-launch',
+    src: modelRocketLaunch,
+    alt: 'Black finned research rocket climbing through golden sunset clouds behind a bright exhaust plume',
+    category: 'Launch Vehicles',
+    caption: 'E6-powered research vehicle under boost — the airframe modelled in the Design & Simulation showcase.',
+    credit: 'MissileX Rocket Space',
+    license: 'All rights reserved'
   }
 ];

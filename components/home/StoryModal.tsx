@@ -21,7 +21,7 @@ const stories = [
     site: 'SDSC SHAR / South Pole, Moon',
     vehicle: 'LVM3-M4 Heavy Lift Vehicle',
     summary: 'India became the fourth nation to soft-land on the lunar surface and the first to touchdown near the lunar southern polar zone at Shiv Shakti Point.',
-    image: galleryImages[0]?.src || '/images/chandrayaan.jpg',
+    image: galleryImages[0].src,
     stats: [
       { label: 'Touchdown Velocity', value: '1.2 m/s' },
       { label: 'Mission Life', value: '1 Lunar Day (14 Days)' },
@@ -37,7 +37,7 @@ const stories = [
     site: 'ITR Chandipur / Multi-Platform',
     vehicle: 'Solid Booster + Liquid Ramjet',
     summary: 'The world’s fastest operational supersonic cruise missile, capable of land, sea, sub-sea, and air launch with pinpoint surgical strike precision.',
-    image: galleryImages[3]?.src || '/images/brahmos.jpg',
+    image: galleryImages[3].src,
     stats: [
       { label: 'Flight Speed', value: 'Mach 2.8 - 3.0' },
       { label: 'Operational Range', value: '290 - 450+ km' },
@@ -53,7 +53,7 @@ const stories = [
     site: 'DRDL Hyderabad / Wheeler Island',
     vehicle: 'IGMDP Missile Architectures',
     summary: 'From sounding rockets at Thumba to the Agni and Prithvi missile architectures, Dr. Kalam laid the technological foundations of India’s self-reliant deterrent capability.',
-    image: galleryImages[6]?.src || '/images/kalam.jpg',
+    image: galleryImages[6].src,
     stats: [
       { label: 'Core Framework', value: 'IGMDP (1983)' },
       { label: 'Key Architectures', value: 'Agni, Prithvi, Akash, Nag' },

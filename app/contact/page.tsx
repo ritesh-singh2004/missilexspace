@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import ContactSection, { ContactPageBanner } from '@/components/contact/ContactSection';
+import ContactSection from '@/components/contact/ContactSection';
 
 export const metadata: Metadata = {
   title: 'Contact',
